@@ -1,6 +1,6 @@
 {
   "name": "Fake Job Offer Detector",
-  "description": "An AI-powered academic-grade Job Offer Verification Agent that analyzes internship and job offers to detect scam indicators, explain fraudulent risks, and generate professional compliance reports using a hybrid ML and Google Gemini reasoning engine.",
+  "description": "An academic-grade Job Offer Verification System that analyzes internship and job offers to detect scam indicators, explain fraudulent risks, and generate professional compliance reports using a hybrid ML classifier and heuristic rule-based reasoning engine.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

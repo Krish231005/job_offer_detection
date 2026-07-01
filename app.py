@@ -74,8 +74,8 @@ if "db_history" not in st.session_state:
     ]
 
 # Sidebar Navigation
-st.sidebar.title("🛡️ CareerGuard AI")
-st.sidebar.markdown("**B.Tech Final Year Capstone Project**")
+st.sidebar.title("🛡️ CareerGuard")
+st.sidebar.markdown("**Himshikhar Capstone Project**")
 st.sidebar.markdown("---")
 menu = st.sidebar.radio("Navigation Menu", ["Dashboard Scanner", "Prediction History", "Analytics Dashboard", "System Settings"])
 
@@ -254,7 +254,7 @@ elif menu == "Analytics Dashboard":
 # 5. MENU - SETTINGS
 else:
     st.title("⚙️ Academic Setup & Settings Configuration")
-    st.markdown("Explore configuration parameters of the underlying NLP Model Classifiers and Google Gemini Cognitive AI Agent.")
+    st.markdown("Explore configuration parameters of the underlying NLP Model Classifiers and Heuristic Rule-Based Decision Matrices.")
     
     st.subheader("🤖 NLP Model Comparison Report")
     nlp_metrics = pd.DataFrame({

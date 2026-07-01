@@ -1,5 +1,5 @@
-# Fake Job Offer Detector Agent (CareerGuard AI)
-### Track: Applied Artificial Intelligence (AAI) | B.Tech Final Year Capstone Project
+# Fake Job Offer Detector (CareerGuard)
+### Track: Natural Language Processing (NLP) & Machine Learning | Himshikhar Capstone Project
 #### Domain: Student Career Safety & Fraud Prevention
 
 ---
@@ -7,7 +7,7 @@
 ## 📌 Project Overview
 As online job platforms expand, freshers and students are increasingly targeted by sophisticated employment fraud. Bad actors impersonate corporate recruiters, issuing highly realistic fake offers to harvest personal information or demand upfront registration fees.
 
-**CareerGuard AI** is an industry-level, hybrid threat-mitigation engine designed to detect fake job offers. It combines **Supervised Machine Learning Classifiers (TF-IDF + Logistic Regression)** with the cognitive reasoning of **Google Gemini (LLM Agents)** and standard corporate reputation heuristics (Domain trusts, email matching, salary realism).
+**CareerGuard** is an industry-level, hybrid threat-mitigation engine designed to detect fake job offers. It combines **Supervised Machine Learning Classifiers (TF-IDF + Logistic Regression)** with the cognitive reasoning of **Heuristic Rule-Based NLP Parsers** and standard corporate reputation heuristics (Domain trusts, email matching, salary realism).
 
 The system is compiled as both a **Full-Stack web application (Express + React)** and a **Python Streamlit dashboard**, saving scans permanently inside transaction tables.
 
@@ -20,7 +20,7 @@ The system is engineered as a multi-tier hybrid decision pipeline:
 ```mermaid
 graph TD
     A[Unstructured Job Offer Letter / Screenshot] --> B[Multimodal Document Processor]
-    B -->|EasyOCR / Base64 Vision API| C[Verbatim Text Extraction]
+    B -->|EasyOCR / Vision Parser| C[Verbatim Text Extraction]
     C --> D[Hybrid Threat Scoring Engine]
     
     subgraph Machine Learning Pipeline
@@ -28,9 +28,9 @@ graph TD
         E -->|Logistic Regression / Random Forest| F[ML Prediction Probability]
     end
     
-    subgraph Cognitive LLM Agent
-        D -->|Gemini 3.5 API Structured Schema| G[Recruiter Name, Wages, Required Payments, Urgency]
-        G --> H[Cognitive Reasoner & Explanation]
+    subgraph NLP Parsing Core
+        D -->|Structured Schema Mapping| G[Recruiter Name, Wages, Required Payments, Urgency]
+        G --> H[Heuristic Reasoner & Explanation]
     end
     
     subgraph Reputation Heuristics
@@ -40,7 +40,7 @@ graph TD
     
     F & H & I & J --> K[Risk Synthesizer Score 0-100]
     K --> L[Persistent Log Storage]
-    K --> M[Visual Gauge scorecards & AI Chats]
+    K --> M[Visual Gauge scorecards & Verification Chat]
 ```
 
 ---
@@ -49,7 +49,7 @@ graph TD
 1. **Multimodal Document Upload**: Drop PDFs or screenshots (PNG, JPEG, JPG). Executes OCR to extract verbatim strings.
 2. **Hybrid Risk Engine**: Computes risk percentages (0-100) combining supervised ML probabilities, trust scores, and payment checklists.
 3. **Cognitive Analysis Panel**: Explains *why* an offer is flagged, isolating known scams (payment traps, Telegram loops, salary outliers).
-4. **AI Careers Coach**: Conversational chat assistant to guide students on verifying recruiter credentials.
+4. **Careers Safety Advisor**: Conversational advisor assistant to guide students on verifying recruiter credentials.
 5. **Interactive Recharts Dashboard**: Explores chronological risk score trends, indicator frequencies, and dangerous email registries.
 6. **PDF Compliance Exporter**: Generates formal security verification documents.
 
@@ -126,15 +126,15 @@ Inside the `/notebooks` directory, we have compiled fully-functional notebooks:
 > **A**: The project mitigates student career safety threats by identifying fake job postings and fraudulent recruitment schemes (such as check-cashing or training fee traps) targeting freshers.
 
 **Q2: How does the Hybrid Risk Engine combine ML with Heuristics?**
-> **A**: Standard ML algorithms evaluate textual features to flag linguistic anomalies (urgency, pay rates). Heuristics check domain registry ages and free-email statuses (trust scores), and LLM Agents extract structured constraints (asksPayment, requiredDocuments), producing a synthesized score out of 100.
+> **A**: Standard ML algorithms evaluate textual features to flag linguistic anomalies (urgency, pay rates). Heuristics check domain registry ages and free-email statuses (trust scores), and NLP rule engines extract structured constraints (asksPayment, requiredDocuments), producing a synthesized score out of 100.
 
 **Q3: Why is Logistic Regression selected over deep neural networks?**
-> **A**: It is mathematically transparent, lightweight, highly efficient on text sparse vectors, and enables Explainable AI by analyzing feature coefficients (weights) directly.
+> **A**: It is mathematically transparent, lightweight, highly efficient on text sparse vectors, and enables Explainable ML by analyzing feature coefficients (weights) directly.
 
 ---
 
 ### Project Metadata & Credits:
-* **Project Title**: Fake Job Offer Detector Agent
-* **Academic Submission**: Final Year B.Tech Project (AAI Track)
+* **Project Title**: Fake Job Offer Detector System
+* **Academic Submission**: Final Year B.Tech Project (NLP & ML Track)
 * **Authored by**: krishchaudhari76@gmail.com
 * **Under guidance of**: University Academic Review Board

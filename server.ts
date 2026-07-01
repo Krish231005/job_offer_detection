@@ -420,7 +420,7 @@ app.post("/api/chat", async (req, res) => {
     }
 
     const ai = getGeminiClient();
-    let contextPrompt = "You are 'CareerGuard AI', an interactive student career safety coach and professional job-scam advisor. Answer the user's queries concisely, providing actionable and empathetic guidance. Map your advice directly to the FTC job scam parameters.";
+    let contextPrompt = "You are 'CareerGuard', an interactive student career safety coach and professional job-scam advisor. Answer the user's queries concisely, providing actionable and empathetic guidance. Map your advice directly to the FTC job scam parameters.";
 
     if (scanId) {
       const scan = db.getById(scanId);

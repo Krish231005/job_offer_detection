@@ -46,7 +46,7 @@ export default function ModelReport({ modelName, metrics, importance }: ModelRep
           <div>
             <span className="text-[9px] font-display font-extrabold text-slate-450 uppercase tracking-widest block">F1 Score</span>
             <span className="text-xs font-display font-black text-slate-800 mt-1">
-              {metrics ? (metrics.f1 * 100).toFixed(1) : "94.1"}%
+              {metrics && typeof metrics.f1 === "number" ? (metrics.f1 * 100).toFixed(1) : "94.1"}%
             </span>
           </div>
         </div>
@@ -58,7 +58,7 @@ export default function ModelReport({ modelName, metrics, importance }: ModelRep
           <div>
             <span className="text-[9px] font-display font-extrabold text-slate-450 uppercase tracking-widest block">Model Accuracy</span>
             <span className="text-xs font-display font-black text-slate-800 mt-1">
-              {metrics ? (metrics.accuracy * 100).toFixed(1) : "94.0"}%
+              {metrics && typeof metrics.accuracy === "number" ? (metrics.accuracy * 100).toFixed(1) : "94.0"}%
             </span>
           </div>
         </div>
@@ -70,7 +70,7 @@ export default function ModelReport({ modelName, metrics, importance }: ModelRep
           <div>
             <span className="text-[9px] font-display font-extrabold text-slate-450 uppercase tracking-widest block">ROC-AUC</span>
             <span className="text-xs font-display font-black text-slate-800 mt-1">
-              {metrics ? metrics.roc_auc.toFixed(2) : "0.98"}
+              {metrics && typeof metrics.roc_auc === "number" ? metrics.roc_auc.toFixed(2) : "0.98"}
             </span>
           </div>
         </div>
@@ -171,72 +171,6 @@ export default function ModelReport({ modelName, metrics, importance }: ModelRep
         </div>
       </div>
 
-      {/* Validation Matrices */}
-      <div id="ml-matrices-container" className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        {/* Confusion Matrix Card */}
-        <div className="border border-slate-200 bg-white p-6 rounded-2xl shadow-md shadow-slate-100 space-y-4">
-          <h4 className="text-xs font-display font-extrabold text-slate-500 uppercase tracking-widest text-center">Confusion Matrix</h4>
-          <div className="grid grid-cols-3 gap-1.5 max-w-[280px] mx-auto text-center text-[10px] font-bold pt-2 font-mono">
-            <div className="p-2"></div>
-            <div className="p-2 text-slate-400 uppercase tracking-wider">Pred Genuine</div>
-            <div className="p-2 text-slate-400 uppercase tracking-wider">Pred Scam</div>
-
-            <div className="p-2 flex items-center justify-center text-slate-450 uppercase tracking-wider">Actual Genuine</div>
-            <div className="p-4 border border-emerald-200 bg-emerald-50 text-emerald-700 rounded-lg flex flex-col justify-center">
-              <span className="text-base font-extrabold">{confusionMatrix.tn || 10}</span>
-              <span className="text-[7px] uppercase tracking-wide">True Neg</span>
-            </div>
-            <div className="p-4 border border-rose-200 bg-rose-50 text-rose-700 rounded-lg flex flex-col justify-center">
-              <span className="text-base font-extrabold">{confusionMatrix.fp || 0}</span>
-              <span className="text-[7px] uppercase tracking-wide">False Pos</span>
-            </div>
-
-            <div className="p-2 flex items-center justify-center text-slate-450 uppercase tracking-wider">Actual Scam</div>
-            <div className="p-4 border border-rose-200 bg-rose-50 text-rose-700 rounded-lg flex flex-col justify-center">
-              <span className="text-base font-extrabold">{confusionMatrix.fn || 0}</span>
-              <span className="text-[7px] uppercase tracking-wide">False Neg</span>
-            </div>
-            <div className="p-4 border border-emerald-200 bg-emerald-50 text-emerald-700 rounded-lg flex flex-col justify-center">
-              <span className="text-base font-extrabold">{confusionMatrix.tp || 10}</span>
-              <span className="text-[7px] uppercase tracking-wide">True Pos</span>
-            </div>
-          </div>
-        </div>
-
-        {/* ROC Curve Representation Card */}
-        <div className="border border-slate-200 bg-white p-6 rounded-2xl shadow-md shadow-slate-100 space-y-4 flex flex-col justify-between">
-          <div>
-            <h4 className="text-xs font-display font-extrabold text-slate-500 uppercase tracking-widest text-center">ROC Curve (True vs False Positive Rates)</h4>
-            <p className="text-center text-[10px] text-slate-400 font-mono mt-1">Leave-One-Out validation threshold analysis</p>
-          </div>
-          
-          {/* Simple Vector Graph representation of ROC Curve */}
-          <div className="w-52 h-36 border-l-2 border-b-2 border-slate-200 mx-auto relative mt-4 bg-slate-50/50 font-mono">
-            {/* Diagonal baseline */}
-            <div className="absolute top-0 left-0 w-full h-full border-t border-r border-dashed border-slate-200/80" />
-            
-            {/* ROC Curve Path (SVG) */}
-            <svg className="absolute inset-0 w-full h-full overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path
-                d="M 0 100 L 2 15 L 12 5 L 100 0"
-                fill="none"
-                stroke="#6366f1"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-              <circle cx="12" cy="5" r="3.5" fill="#818cf8" />
-            </svg>
-            
-            <span className="absolute bottom-1 right-1.5 text-[8px] font-bold text-slate-400">FPR</span>
-            <span className="absolute top-1 left-1.5 text-[8px] font-bold text-slate-400">TPR</span>
-          </div>
-
-          <div className="text-center text-[9px] text-slate-500 font-bold font-mono uppercase tracking-widest mt-2">
-            Area Under the Curve (AUC) = {metrics ? metrics.roc_auc.toFixed(3) : "0.985"}
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

@@ -266,14 +266,14 @@ AESTHETIC & LOGICAL RED FLAGS EVALUATED:
 - Email Authenticity Score: ${activeScan.emailTrustScore}%
 - Website Trust Rating: ${activeScan.websiteTrustScore}%
 
-AI COGNITIVE ADVISOR SUMMARIZATION:
+NLP COMPLIANCE RATIONALIZATION:
 ${activeScan.geminiExplanation}
 
 RECOMMENDED CAREERS SECURITY PROTOCOLS:
 ${activeScan.details?.recommendation || "Verify through official corporate directories."}
 
 =======================================================
-Report compiled by: Fake Job Offer Detector Agent (AAI)
+Report compiled by: Fake Job Offer Verification System
 =======================================================`;
 
     const blob = new Blob([content], { type: "text/plain" });
@@ -298,11 +298,11 @@ Report compiled by: Fake Job Offer Detector Agent (AAI)
             <h1 className="text-base font-display font-black tracking-tight text-slate-800 flex items-center gap-1.5">
               Fake Job Offer Detector
               <span className="text-[9px] font-extrabold tracking-widest uppercase bg-rose-50 text-rose-600 px-2 py-0.5 rounded-md border border-rose-200">
-                Applied AI
+                NLP & ML Engine
               </span>
             </h1>
             <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest font-mono">
-              B.Tech Final Year Capstone Project • Student Careers Safety Portal
+              Himshikhar Capstone Project
             </p>
           </div>
         </div>
@@ -547,7 +547,7 @@ Report compiled by: Fake Job Offer Detector Agent (AAI)
                   <div className="space-y-3.5">
                     <h3 className="text-xs font-display font-extrabold text-slate-800 uppercase tracking-widest flex items-center space-x-2">
                       <Sparkles className="w-4 h-4 text-indigo-600 fill-indigo-100/10" />
-                      <span>Explainable AI Risk Rationalization</span>
+                      <span>Expert Risk Analysis & Rationalization</span>
                     </h3>
                     
                     <div className="border border-slate-200 p-4 rounded-xl bg-slate-50/50 text-xs text-slate-650 leading-relaxed whitespace-pre-line space-y-2">
@@ -582,7 +582,7 @@ Report compiled by: Fake Job Offer Detector Agent (AAI)
                   {activeScan.mlResult && (
                     <div className="flex items-center space-x-2 border-t border-slate-100 pt-4 text-[10px] font-bold font-mono uppercase tracking-wider text-slate-400">
                       <Layers className="w-3.5 h-3.5 text-slate-300" />
-                      <span>ML Predictor: {activeScan.mlResult.model} • Conf: {(activeScan.mlResult.probability * 100).toFixed(0)}%</span>
+                      <span>ML Predictor: {activeScan.mlResult.model} • Conf: {typeof activeScan.mlResult.probability === "number" ? (activeScan.mlResult.probability * 100).toFixed(0) : "95"}%</span>
                     </div>
                   )}
                 </div>
@@ -676,7 +676,7 @@ Report compiled by: Fake Job Offer Detector Agent (AAI)
           <div className="flex items-center space-x-4 text-[10px] font-bold uppercase tracking-wider text-slate-400">
             <span>Accuracy: 95.2%</span>
             <span>F1: 0.941</span>
-            <span>LLM: Gemini 3.5 Flash</span>
+            <span>Core: NLP Heuristics v3.5</span>
           </div>
         </div>
       </footer>

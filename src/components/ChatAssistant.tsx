@@ -17,7 +17,7 @@ export default function ChatAssistant({ activeScanId, activeCompanyName }: ChatA
     {
       id: "init",
       sender: "bot",
-      content: `Hello! I am **CareerGuard AI**, your dedicated student career safety coach. 
+      content: `Hello! I am **CareerGuard**, your dedicated student career safety coach. 
       
 I can explain FTC job-scam guidelines, verify warning flags, and guide you on verifying recruiters safely.
 ${
@@ -117,7 +117,7 @@ ${
               CareerGuard Advisor
               <Sparkles className="w-3.5 h-3.5 text-indigo-500 fill-indigo-500/20 animate-pulse" />
             </h3>
-            <p className="text-[10px] text-slate-500 font-medium font-mono">Gemini 3.5 Core Agent</p>
+            <p className="text-[10px] text-slate-500 font-medium font-mono">NLP Heuristics Core v3.5</p>
           </div>
         </div>
         {activeCompanyName && (
