@@ -76,10 +76,10 @@ export default function EvidencePanel({
   ];
 
   return (
-    <div id="evidence-panel-wrapper" className="p-6 border border-slate-800/80 rounded-2xl bg-[#111827]/70 backdrop-blur-md shadow-2xl shadow-black/40">
+    <div id="evidence-panel-wrapper" className="p-6 border border-slate-200/80 rounded-2xl bg-white shadow-md shadow-slate-100">
       <div className="flex items-center space-x-2.5 mb-6">
-        <Shield className="w-5 h-5 text-indigo-400" />
-        <h3 className="text-sm font-display font-extrabold text-slate-100 uppercase tracking-wider">
+        <Shield className="w-5 h-5 text-indigo-600" />
+        <h3 className="text-sm font-display font-extrabold text-slate-800 uppercase tracking-wider">
           Fraud Evidence Tracker
         </h3>
       </div>
@@ -92,28 +92,28 @@ export default function EvidencePanel({
               key={item.id}
               className={`flex items-start space-x-3.5 p-4 border rounded-xl transition-all duration-300 ${
                 isFail
-                  ? "border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/25"
-                  : "border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/25"
+                  ? "border-rose-200 bg-rose-50/40 hover:bg-rose-50/70"
+                  : "border-emerald-200 bg-emerald-50/40 hover:bg-emerald-50/70"
               }`}
             >
               {/* Status Icons */}
               <div className="mt-0.5 flex-shrink-0">
                 {isFail ? (
-                  <AlertTriangle className="w-5 h-5 text-rose-400 animate-pulse" />
+                  <AlertTriangle className="w-5 h-5 text-rose-500" />
                 ) : (
-                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <CheckCircle className="w-5 h-5 text-emerald-500" />
                 )}
               </div>
 
               {/* Text Description */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between gap-2">
-                  <h4 className="text-xs font-display font-bold text-slate-200 tracking-tight">{item.title}</h4>
+                  <h4 className="text-xs font-display font-bold text-slate-800 tracking-tight">{item.title}</h4>
                   <span
                     className={`inline-flex items-center px-2 py-0.5 rounded-md text-[9px] font-extrabold uppercase tracking-widest ${
                       isFail
-                        ? "bg-rose-500/10 text-rose-400 border border-rose-500/35"
-                        : "bg-emerald-500/10 text-emerald-400 border border-emerald-500/35"
+                        ? "bg-rose-50 text-rose-700 border border-rose-200"
+                        : "bg-emerald-50 text-emerald-700 border border-emerald-200"
                     }`}
                   >
                     {isFail ? "Red Flag" : "Pass"}
@@ -124,7 +124,7 @@ export default function EvidencePanel({
                 
                 <p
                   className={`text-xs font-bold mt-2.5 ${
-                    isFail ? "text-rose-400" : "text-emerald-400"
+                    isFail ? "text-rose-700" : "text-emerald-700"
                   }`}
                 >
                   {isFail ? item.failText : item.passText}

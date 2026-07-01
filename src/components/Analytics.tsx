@@ -85,35 +85,35 @@ export default function Analytics({ refreshTrigger }: AnalyticsProps) {
       
       {/* Overview Cards row */}
       <div id="analytics-summary-cards" className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-[#111827]/70 border border-slate-800/80 p-5 rounded-2xl shadow-2xl shadow-black/30 backdrop-blur-md">
-          <span className="text-[10px] font-display font-bold text-slate-400 uppercase tracking-widest block">Average Offer Risk</span>
+        <div className="bg-white border border-slate-200/80 p-5 rounded-2xl shadow-md shadow-slate-100">
+          <span className="text-[10px] font-display font-bold text-slate-500 uppercase tracking-widest block">Average Offer Risk</span>
           <div className="flex items-baseline space-x-1.5 mt-2">
-            <span className="text-3xl font-display font-black text-slate-100">{avgRisk}</span>
-            <span className="text-xs font-bold text-slate-500 font-mono">/ 100</span>
+            <span className="text-3xl font-display font-black text-slate-800">{avgRisk}</span>
+            <span className="text-xs font-bold text-slate-400 font-mono">/ 100</span>
           </div>
-          <div className="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden mt-4 border border-slate-900">
+          <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden mt-4 border border-slate-200">
             <div
-              className={`h-full rounded-full ${avgRisk > 50 ? "bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.4)]" : "bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]"}`}
+              className={`h-full rounded-full ${avgRisk > 50 ? "bg-rose-500" : "bg-emerald-500"}`}
               style={{ width: `${avgRisk}%` }}
             />
           </div>
         </div>
 
-        <div className="bg-[#111827]/70 border border-slate-800/80 p-5 rounded-2xl shadow-2xl shadow-black/30 backdrop-blur-md">
-          <span className="text-[10px] font-display font-bold text-slate-400 uppercase tracking-widest block">Total Scans Performed</span>
-          <span className="text-3xl font-display font-black text-slate-100 mt-2 block">{totalScans}</span>
-          <span className="text-[10px] text-slate-500 font-bold font-mono uppercase tracking-wider mt-2.5 block">Persistent sqlite logging active</span>
+        <div className="bg-white border border-slate-200/80 p-5 rounded-2xl shadow-md shadow-slate-100">
+          <span className="text-[10px] font-display font-bold text-slate-500 uppercase tracking-widest block">Total Scans Performed</span>
+          <span className="text-3xl font-display font-black text-slate-800 mt-2 block">{totalScans}</span>
+          <span className="text-[10px] text-slate-400 font-bold font-mono uppercase tracking-wider mt-2.5 block">Persistent sqlite logging active</span>
         </div>
 
-        <div className="bg-[#111827]/70 border border-slate-800/80 p-5 rounded-2xl shadow-2xl shadow-black/30 backdrop-blur-md">
-          <span className="text-[10px] font-display font-bold text-slate-400 uppercase tracking-widest block">Verified Threat Ratio</span>
+        <div className="bg-white border border-slate-200/80 p-5 rounded-2xl shadow-md shadow-slate-100">
+          <span className="text-[10px] font-display font-bold text-slate-500 uppercase tracking-widest block">Verified Threat Ratio</span>
           <div className="flex items-baseline space-x-1 mt-2">
-            <span className="text-3xl font-display font-black text-rose-400">
+            <span className="text-3xl font-display font-black text-rose-600">
               {totalScans > 0 ? ((fraudCount / totalScans) * 100).toFixed(0) : "0"}%
             </span>
             <span className="text-xs font-bold text-slate-500 font-mono ml-1.5">of offers are malicious</span>
           </div>
-          <span className="text-[10px] text-slate-500 font-bold font-mono uppercase tracking-wider mt-2.5 block">FTC guidance profile matching</span>
+          <span className="text-[10px] text-slate-400 font-bold font-mono uppercase tracking-wider mt-2.5 block">FTC guidance profile matching</span>
         </div>
       </div>
 
@@ -121,24 +121,24 @@ export default function Analytics({ refreshTrigger }: AnalyticsProps) {
       <div id="charts-flex-grid" className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         
         {/* Indicators Frequency BarChart */}
-        <div className="border border-slate-800/80 bg-[#111827]/70 p-6 rounded-2xl shadow-2xl shadow-black/40 backdrop-blur-md space-y-4">
+        <div className="border border-slate-200/80 bg-white p-6 rounded-2xl shadow-md shadow-slate-100 space-y-4">
           <div className="flex items-center space-x-2.5">
-            <BarChart3 className="w-5 h-5 text-indigo-400" />
-            <h3 className="text-sm font-display font-extrabold text-slate-100 uppercase tracking-wider">
+            <BarChart3 className="w-5 h-5 text-indigo-600" />
+            <h3 className="text-sm font-display font-extrabold text-slate-800 uppercase tracking-wider">
               Most Common Fraud Indicators
             </h3>
           </div>
-          <p className="text-xs text-slate-400 leading-relaxed">The frequency of specific red flags detected in scanned job offers:</p>
+          <p className="text-xs text-slate-500 leading-relaxed">The frequency of specific red flags detected in scanned job offers:</p>
           
           <div className="h-64 w-full pt-2 font-mono">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={barChartData} margin={{ top: 10, right: 10, left: -25, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#1f2937" opacity={0.4} />
-                <XAxis dataKey="name" stroke="#4b5563" fontSize={9} tickLine={false} />
-                <YAxis stroke="#4b5563" fontSize={9} tickLine={false} allowDecimals={false} />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" opacity={0.8} />
+                <XAxis dataKey="name" stroke="#94a3b8" fontSize={9} tickLine={false} />
+                <YAxis stroke="#94a3b8" fontSize={9} tickLine={false} allowDecimals={false} />
                 <Tooltip 
-                  cursor={{ fill: 'rgba(31, 41, 55, 0.2)' }} 
-                  contentStyle={{ backgroundColor: '#1f2937', border: '1px solid #374151', borderRadius: '12px', fontSize: '11px', color: '#f3f4f6' }} 
+                  cursor={{ fill: 'rgba(241, 245, 249, 0.4)' }} 
+                  contentStyle={{ backgroundColor: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', fontSize: '11px', color: '#1e293b' }} 
                 />
                 <Bar dataKey="count" fill="#4f46e5" radius={[4, 4, 0, 0]} barSize={32}>
                   {barChartData.map((entry, index) => (
@@ -151,14 +151,14 @@ export default function Analytics({ refreshTrigger }: AnalyticsProps) {
         </div>
 
         {/* Risk Distribution PieChart */}
-        <div className="border border-slate-800/80 bg-[#111827]/70 p-6 rounded-2xl shadow-2xl shadow-black/40 backdrop-blur-md space-y-4">
+        <div className="border border-slate-200/80 bg-white p-6 rounded-2xl shadow-md shadow-slate-100 space-y-4">
           <div className="flex items-center space-x-2.5">
-            <PieIcon className="w-5 h-5 text-indigo-400" />
-            <h3 className="text-sm font-display font-extrabold text-slate-100 uppercase tracking-wider">
+            <PieIcon className="w-5 h-5 text-indigo-600" />
+            <h3 className="text-sm font-display font-extrabold text-slate-800 uppercase tracking-wider">
               Assessed Threat Proportion
             </h3>
           </div>
-          <p className="text-xs text-slate-400 leading-relaxed">Percentage breakdown of genuine vs fraudulent applications:</p>
+          <p className="text-xs text-slate-500 leading-relaxed">Percentage breakdown of genuine vs fraudulent applications:</p>
           
           <div className="h-64 w-full flex items-center justify-center font-display font-bold">
             <ResponsiveContainer width="100%" height="100%">
@@ -176,8 +176,8 @@ export default function Analytics({ refreshTrigger }: AnalyticsProps) {
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
-                <Tooltip contentStyle={{ backgroundColor: '#1f2937', border: '1px solid #374151', borderRadius: '12px', fontSize: '11px', color: '#f3f4f6' }} />
-                <Legend iconType="circle" wrapperStyle={{ fontSize: '11px', color: '#9ca3af' }} />
+                <Tooltip contentStyle={{ backgroundColor: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', fontSize: '11px', color: '#1e293b' }} />
+                <Legend iconType="circle" wrapperStyle={{ fontSize: '11px', color: '#64748b' }} />
               </PieChart>
             </ResponsiveContainer>
           </div>
@@ -185,33 +185,33 @@ export default function Analytics({ refreshTrigger }: AnalyticsProps) {
       </div>
 
       {/* Threat Domain Intelligence Registry */}
-      <div id="threat-intelligence-card" className="border border-slate-800/80 bg-[#111827]/70 p-6 rounded-2xl shadow-2xl shadow-black/40 backdrop-blur-md space-y-4">
+      <div id="threat-intelligence-card" className="border border-slate-200/80 bg-white p-6 rounded-2xl shadow-md shadow-slate-100 space-y-4">
         <div className="flex items-center space-x-2.5">
-          <Globe className="w-5 h-5 text-rose-400" />
-          <h3 className="text-sm font-display font-extrabold text-slate-100 uppercase tracking-wider">
+          <Globe className="w-5 h-5 text-rose-500" />
+          <h3 className="text-sm font-display font-extrabold text-slate-800 uppercase tracking-wider">
             Domain Threat Intelligence Registry
           </h3>
         </div>
-        <p className="text-xs text-slate-400 leading-relaxed font-sans">Top domains associated with high-risk job fraud alerts logged in database:</p>
+        <p className="text-xs text-slate-500 leading-relaxed font-sans">Top domains associated with high-risk job fraud alerts logged in database:</p>
 
         {topSuspiciousDomains.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-1 font-mono">
             {topSuspiciousDomains.map((dom: any, idx: number) => (
-              <div key={idx} className="flex items-center justify-between p-3.5 border border-rose-500/10 bg-rose-500/5 rounded-xl">
+              <div key={idx} className="flex items-center justify-between p-3.5 border border-rose-200 bg-rose-50/50 rounded-xl">
                 <div className="flex items-center space-x-2.5 min-w-0">
-                  <div className="p-1.5 rounded-lg bg-rose-500/10 text-rose-400 border border-rose-500/20">
+                  <div className="p-1.5 rounded-lg bg-rose-100 text-rose-600 border border-rose-200">
                     <ShieldAlert className="w-4 h-4 flex-shrink-0 animate-pulse" />
                   </div>
-                  <span className="text-xs font-bold text-slate-200 truncate">{dom.domain}</span>
+                  <span className="text-xs font-bold text-slate-800 truncate">{dom.domain}</span>
                 </div>
-                <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[9px] font-extrabold bg-rose-500/15 text-rose-400 border border-rose-500/25 tracking-widest">
+                <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[9px] font-extrabold bg-rose-100 text-rose-700 border border-rose-200 tracking-widest">
                   {dom.count} Scans
                 </span>
               </div>
             ))}
           </div>
         ) : (
-          <div className="text-center p-6 border border-dashed border-slate-800 rounded-xl text-xs text-slate-500 font-medium font-mono">
+          <div className="text-center p-6 border border-dashed border-slate-200 rounded-xl text-xs text-slate-400 font-medium font-mono">
             No suspicious domain signatures logged in threat history yet.
           </div>
         )}

@@ -29,47 +29,47 @@ export default function ModelReport({ modelName, metrics, importance }: ModelRep
     <div id="model-report-wrapper" className="space-y-6">
       {/* Active Classifier Metrics Banner */}
       <div id="active-classifier-banner" className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-[#111827]/70 border border-slate-800/80 p-4 rounded-2xl flex items-center space-x-3.5 shadow-2xl shadow-black/30 backdrop-blur-md">
-          <div className="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+        <div className="bg-white border border-slate-200 p-4 rounded-2xl flex items-center space-x-3.5 shadow-md shadow-slate-100">
+          <div className="p-2.5 rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-100">
             <Cpu className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[9px] font-display font-extrabold text-slate-500 uppercase tracking-widest block">Active Classifier</span>
-            <span className="text-xs font-display font-black text-slate-200 mt-1">{modelName || "Logistic Regression"}</span>
+            <span className="text-[9px] font-display font-extrabold text-slate-450 uppercase tracking-widest block">Active Classifier</span>
+            <span className="text-xs font-display font-black text-slate-800 mt-1">{modelName || "Logistic Regression"}</span>
           </div>
         </div>
 
-        <div className="bg-[#111827]/70 border border-slate-800/80 p-4 rounded-2xl flex items-center space-x-3.5 shadow-2xl shadow-black/30 backdrop-blur-md">
-          <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+        <div className="bg-white border border-slate-200 p-4 rounded-2xl flex items-center space-x-3.5 shadow-md shadow-slate-100">
+          <div className="p-2.5 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100">
             <Target className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[9px] font-display font-extrabold text-slate-500 uppercase tracking-widest block">F1 Score</span>
-            <span className="text-xs font-display font-black text-slate-200 mt-1">
+            <span className="text-[9px] font-display font-extrabold text-slate-450 uppercase tracking-widest block">F1 Score</span>
+            <span className="text-xs font-display font-black text-slate-800 mt-1">
               {metrics ? (metrics.f1 * 100).toFixed(1) : "94.1"}%
             </span>
           </div>
         </div>
 
-        <div className="bg-[#111827]/70 border border-slate-800/80 p-4 rounded-2xl flex items-center space-x-3.5 shadow-2xl shadow-black/30 backdrop-blur-md">
-          <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20">
+        <div className="bg-white border border-slate-200 p-4 rounded-2xl flex items-center space-x-3.5 shadow-md shadow-slate-100">
+          <div className="p-2.5 rounded-xl bg-amber-50 text-amber-600 border border-amber-100">
             <Award className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[9px] font-display font-extrabold text-slate-500 uppercase tracking-widest block">Model Accuracy</span>
-            <span className="text-xs font-display font-black text-slate-200 mt-1">
+            <span className="text-[9px] font-display font-extrabold text-slate-450 uppercase tracking-widest block">Model Accuracy</span>
+            <span className="text-xs font-display font-black text-slate-800 mt-1">
               {metrics ? (metrics.accuracy * 100).toFixed(1) : "94.0"}%
             </span>
           </div>
         </div>
 
-        <div className="bg-[#111827]/70 border border-slate-800/80 p-4 rounded-2xl flex items-center space-x-3.5 shadow-2xl shadow-black/30 backdrop-blur-md">
-          <div className="p-2.5 rounded-xl bg-rose-500/10 text-rose-400 border border-rose-500/20">
+        <div className="bg-white border border-slate-200 p-4 rounded-2xl flex items-center space-x-3.5 shadow-md shadow-slate-100">
+          <div className="p-2.5 rounded-xl bg-rose-50 text-rose-600 border border-rose-100">
             <BarChart2 className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[9px] font-display font-extrabold text-slate-500 uppercase tracking-widest block">ROC-AUC</span>
-            <span className="text-xs font-display font-black text-slate-200 mt-1">
+            <span className="text-[9px] font-display font-extrabold text-slate-450 uppercase tracking-widest block">ROC-AUC</span>
+            <span className="text-xs font-display font-black text-slate-800 mt-1">
               {metrics ? metrics.roc_auc.toFixed(2) : "0.98"}
             </span>
           </div>
@@ -80,16 +80,16 @@ export default function ModelReport({ modelName, metrics, importance }: ModelRep
       <div id="ml-pipeline-grid" className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Academic Multi-Model Evaluation Table */}
-        <div className="lg:col-span-2 border border-slate-800/80 bg-[#111827]/70 p-6 rounded-2xl shadow-2xl shadow-black/40 backdrop-blur-md space-y-4">
+        <div className="lg:col-span-2 border border-slate-200 bg-white p-6 rounded-2xl shadow-md shadow-slate-100 space-y-4">
           <div className="flex items-center space-x-2.5">
-            <Cpu className="w-5 h-5 text-indigo-400" />
-            <h3 className="text-sm font-display font-extrabold text-slate-100 uppercase tracking-wider">
+            <Cpu className="w-5 h-5 text-indigo-600" />
+            <h3 className="text-sm font-display font-extrabold text-slate-800 uppercase tracking-wider">
               Supervised Classifiers Comparison (Leave-One-Out CV)
             </h3>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs font-mono">
-              <thead className="bg-slate-950/60 text-slate-400 font-bold uppercase text-[9px] tracking-widest border-b border-slate-800/60">
+              <thead className="bg-slate-50 text-slate-500 font-bold uppercase text-[9px] tracking-widest border-b border-slate-200">
                 <tr>
                   <th className="py-3 px-3">Model Pipeline</th>
                   <th className="py-3 px-3">Accuracy</th>
@@ -99,46 +99,46 @@ export default function ModelReport({ modelName, metrics, importance }: ModelRep
                   <th className="py-3 px-3">ROC-AUC</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/50 font-medium text-slate-300">
+              <tbody className="divide-y divide-slate-100 font-medium text-slate-600">
                 {modelsComparison.map((m, idx) => (
-                  <tr key={idx} className="hover:bg-slate-900/30 transition-colors duration-150">
-                    <td className="py-3 px-3 font-display font-bold text-slate-200">{m.name}</td>
+                  <tr key={idx} className="hover:bg-slate-50/70 transition-colors duration-150">
+                    <td className="py-3 px-3 font-display font-bold text-slate-800">{m.name}</td>
                     <td className="py-3 px-3">{(m.acc * 100).toFixed(0)}%</td>
                     <td className="py-3 px-3">{(m.prec * 100).toFixed(0)}%</td>
                     <td className="py-3 px-3">{(m.rec * 100).toFixed(0)}%</td>
-                    <td className="py-3 px-3 font-bold text-indigo-400">{(m.f1 * 100).toFixed(0)}%</td>
-                    <td className="py-3 px-3 text-emerald-400">{m.auc.toFixed(2)}</td>
+                    <td className="py-3 px-3 font-bold text-indigo-600">{(m.f1 * 100).toFixed(0)}%</td>
+                    <td className="py-3 px-3 text-emerald-600">{m.auc.toFixed(2)}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <span className="block text-[10px] text-slate-500 italic font-medium leading-relaxed font-sans">
+          <span className="block text-[10px] text-slate-400 italic font-medium leading-relaxed font-sans">
             * Models are trained strictly on the synthetic corpus generated based on FTC Job Scam Guidance red flags. The pipeline automatically evaluates all options and selects the best model for active real-time scoring.
           </span>
         </div>
 
         {/* Feature Importance Panel */}
-        <div className="border border-slate-800/80 bg-[#111827]/70 p-6 rounded-2xl shadow-2xl shadow-black/40 backdrop-blur-md space-y-4">
+        <div className="border border-slate-200 bg-white p-6 rounded-2xl shadow-md shadow-slate-100 space-y-4">
           <div className="flex items-center space-x-2.5">
-            <Award className="w-5 h-5 text-indigo-400" />
-            <h3 className="text-sm font-display font-extrabold text-slate-100 uppercase tracking-wider">
+            <Award className="w-5 h-5 text-indigo-600" />
+            <h3 className="text-sm font-display font-extrabold text-slate-800 uppercase tracking-wider">
               Scam Feature Weights
             </h3>
           </div>
-          <p className="text-xs text-slate-400 leading-relaxed font-sans">TF-IDF term weights (Logistic Regression coefficients) pointing to high-risk job fraudulence:</p>
+          <p className="text-xs text-slate-500 leading-relaxed font-sans">TF-IDF term weights (Logistic Regression coefficients) pointing to high-risk job fraudulence:</p>
           
           <div id="feature-items" className="space-y-4.5 pt-1 font-mono">
             {importance && importance.length > 0 ? (
               importance.slice(0, 5).map((feat, idx) => (
                 <div key={idx} className="space-y-1.5">
                   <div className="flex justify-between text-xs font-semibold">
-                    <span className="text-slate-200">"{feat.word}"</span>
-                    <span className="text-indigo-400">+{feat.importance.toFixed(2)}</span>
+                    <span className="text-slate-800">"{feat.word}"</span>
+                    <span className="text-indigo-600">+{feat.importance.toFixed(2)}</span>
                   </div>
-                  <div className="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden border border-slate-900">
+                  <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
                     <div
-                      className="h-full bg-indigo-500 rounded-full shadow-[0_0_8px_rgba(99,102,241,0.4)]"
+                      className="h-full bg-indigo-500 rounded-full"
                       style={{ width: `${Math.min(100, Math.abs(feat.importance) * 20)}%` }}
                     />
                   </div>
@@ -155,12 +155,12 @@ export default function ModelReport({ modelName, metrics, importance }: ModelRep
               ].map((feat, idx) => (
                 <div key={idx} className="space-y-1.5">
                   <div className="flex justify-between text-xs font-semibold font-mono">
-                    <span className="text-slate-200">"{feat.word}"</span>
-                    <span className="text-indigo-400 font-bold">+{feat.wt.toFixed(1)}</span>
+                    <span className="text-slate-800">"{feat.word}"</span>
+                    <span className="text-indigo-600 font-bold">+{feat.wt.toFixed(1)}</span>
                   </div>
-                  <div className="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden border border-slate-900">
+                  <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
                     <div
-                      className="h-full bg-indigo-500 rounded-full shadow-[0_0_8px_rgba(99,102,241,0.4)]"
+                      className="h-full bg-indigo-500 rounded-full"
                       style={{ width: `${feat.wt * 20}%` }}
                     />
                   </div>
@@ -175,29 +175,29 @@ export default function ModelReport({ modelName, metrics, importance }: ModelRep
       <div id="ml-matrices-container" className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* Confusion Matrix Card */}
-        <div className="border border-slate-800/80 bg-[#111827]/70 p-6 rounded-2xl shadow-2xl shadow-black/40 backdrop-blur-md space-y-4">
-          <h4 className="text-xs font-display font-extrabold text-slate-300 uppercase tracking-widest text-center">Confusion Matrix</h4>
+        <div className="border border-slate-200 bg-white p-6 rounded-2xl shadow-md shadow-slate-100 space-y-4">
+          <h4 className="text-xs font-display font-extrabold text-slate-500 uppercase tracking-widest text-center">Confusion Matrix</h4>
           <div className="grid grid-cols-3 gap-1.5 max-w-[280px] mx-auto text-center text-[10px] font-bold pt-2 font-mono">
             <div className="p-2"></div>
-            <div className="p-2 text-slate-500 uppercase tracking-wider">Pred Genuine</div>
-            <div className="p-2 text-slate-500 uppercase tracking-wider">Pred Scam</div>
+            <div className="p-2 text-slate-400 uppercase tracking-wider">Pred Genuine</div>
+            <div className="p-2 text-slate-400 uppercase tracking-wider">Pred Scam</div>
 
-            <div className="p-2 flex items-center justify-center text-slate-500 uppercase tracking-wider">Actual Genuine</div>
-            <div className="p-4 border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 rounded-lg flex flex-col justify-center">
+            <div className="p-2 flex items-center justify-center text-slate-450 uppercase tracking-wider">Actual Genuine</div>
+            <div className="p-4 border border-emerald-200 bg-emerald-50 text-emerald-700 rounded-lg flex flex-col justify-center">
               <span className="text-base font-extrabold">{confusionMatrix.tn || 10}</span>
               <span className="text-[7px] uppercase tracking-wide">True Neg</span>
             </div>
-            <div className="p-4 border border-rose-500/20 bg-rose-500/10 text-rose-400 rounded-lg flex flex-col justify-center">
+            <div className="p-4 border border-rose-200 bg-rose-50 text-rose-700 rounded-lg flex flex-col justify-center">
               <span className="text-base font-extrabold">{confusionMatrix.fp || 0}</span>
               <span className="text-[7px] uppercase tracking-wide">False Pos</span>
             </div>
 
-            <div className="p-2 flex items-center justify-center text-slate-500 uppercase tracking-wider">Actual Scam</div>
-            <div className="p-4 border border-rose-500/20 bg-rose-500/10 text-rose-400 rounded-lg flex flex-col justify-center">
+            <div className="p-2 flex items-center justify-center text-slate-450 uppercase tracking-wider">Actual Scam</div>
+            <div className="p-4 border border-rose-200 bg-rose-50 text-rose-700 rounded-lg flex flex-col justify-center">
               <span className="text-base font-extrabold">{confusionMatrix.fn || 0}</span>
               <span className="text-[7px] uppercase tracking-wide">False Neg</span>
             </div>
-            <div className="p-4 border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 rounded-lg flex flex-col justify-center">
+            <div className="p-4 border border-emerald-200 bg-emerald-50 text-emerald-700 rounded-lg flex flex-col justify-center">
               <span className="text-base font-extrabold">{confusionMatrix.tp || 10}</span>
               <span className="text-[7px] uppercase tracking-wide">True Pos</span>
             </div>
@@ -205,16 +205,16 @@ export default function ModelReport({ modelName, metrics, importance }: ModelRep
         </div>
 
         {/* ROC Curve Representation Card */}
-        <div className="border border-slate-800/80 bg-[#111827]/70 p-6 rounded-2xl shadow-2xl shadow-black/40 backdrop-blur-md space-y-4 flex flex-col justify-between">
+        <div className="border border-slate-200 bg-white p-6 rounded-2xl shadow-md shadow-slate-100 space-y-4 flex flex-col justify-between">
           <div>
-            <h4 className="text-xs font-display font-extrabold text-slate-300 uppercase tracking-widest text-center">ROC Curve (True vs False Positive Rates)</h4>
-            <p className="text-center text-[10px] text-slate-500 font-mono mt-1">Leave-One-Out validation threshold analysis</p>
+            <h4 className="text-xs font-display font-extrabold text-slate-500 uppercase tracking-widest text-center">ROC Curve (True vs False Positive Rates)</h4>
+            <p className="text-center text-[10px] text-slate-400 font-mono mt-1">Leave-One-Out validation threshold analysis</p>
           </div>
           
           {/* Simple Vector Graph representation of ROC Curve */}
-          <div className="w-52 h-36 border-l-2 border-b-2 border-slate-800 mx-auto relative mt-4 bg-slate-950/20 font-mono">
+          <div className="w-52 h-36 border-l-2 border-b-2 border-slate-200 mx-auto relative mt-4 bg-slate-50/50 font-mono">
             {/* Diagonal baseline */}
-            <div className="absolute top-0 left-0 w-full h-full border-t border-r border-dashed border-slate-900/60" />
+            <div className="absolute top-0 left-0 w-full h-full border-t border-r border-dashed border-slate-200/80" />
             
             {/* ROC Curve Path (SVG) */}
             <svg className="absolute inset-0 w-full h-full overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -228,11 +228,11 @@ export default function ModelReport({ modelName, metrics, importance }: ModelRep
               <circle cx="12" cy="5" r="3.5" fill="#818cf8" />
             </svg>
             
-            <span className="absolute bottom-1 right-1.5 text-[8px] font-bold text-slate-600">FPR</span>
-            <span className="absolute top-1 left-1.5 text-[8px] font-bold text-slate-600">TPR</span>
+            <span className="absolute bottom-1 right-1.5 text-[8px] font-bold text-slate-400">FPR</span>
+            <span className="absolute top-1 left-1.5 text-[8px] font-bold text-slate-400">TPR</span>
           </div>
 
-          <div className="text-center text-[9px] text-slate-400 font-bold font-mono uppercase tracking-widest mt-2">
+          <div className="text-center text-[9px] text-slate-500 font-bold font-mono uppercase tracking-widest mt-2">
             Area Under the Curve (AUC) = {metrics ? metrics.roc_auc.toFixed(3) : "0.985"}
           </div>
         </div>

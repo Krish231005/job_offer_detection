@@ -105,30 +105,30 @@ ${
   };
 
   return (
-    <div id="chat-assistant-container" className="flex flex-col h-[520px] border border-slate-800/80 rounded-2xl bg-[#111827]/70 backdrop-blur-md shadow-2xl shadow-black/40 overflow-hidden">
+    <div id="chat-assistant-container" className="flex flex-col h-[520px] border border-slate-200/80 rounded-2xl bg-white shadow-md shadow-slate-100 overflow-hidden">
       {/* Chat Header */}
-      <div id="chat-header" className="flex items-center justify-between p-4 border-b border-slate-800/60 bg-indigo-950/20">
+      <div id="chat-header" className="flex items-center justify-between p-4 border-b border-slate-200/80 bg-slate-50">
         <div className="flex items-center space-x-2.5">
-          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 shadow-xs">
+          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 border border-indigo-200 shadow-xs">
             <Bot className="w-4 h-4" />
           </div>
           <div>
-            <h3 className="text-xs font-display font-bold text-slate-100 flex items-center gap-1.5 uppercase tracking-wide">
+            <h3 className="text-xs font-display font-bold text-slate-800 flex items-center gap-1.5 uppercase tracking-wide">
               CareerGuard Advisor
-              <Sparkles className="w-3.5 h-3.5 text-indigo-400 fill-indigo-400/20 animate-pulse" />
+              <Sparkles className="w-3.5 h-3.5 text-indigo-500 fill-indigo-500/20 animate-pulse" />
             </h3>
-            <p className="text-[10px] text-slate-400 font-medium font-mono">Gemini 3.5 Core Agent</p>
+            <p className="text-[10px] text-slate-500 font-medium font-mono">Gemini 3.5 Core Agent</p>
           </div>
         </div>
         {activeCompanyName && (
-          <span className="text-[10px] font-display font-extrabold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2.5 py-1 rounded-full">
+          <span className="text-[10px] font-display font-extrabold uppercase tracking-widest bg-indigo-50 text-indigo-700 border border-indigo-200 px-2.5 py-1 rounded-full">
             {activeCompanyName}
           </span>
         )}
       </div>
 
       {/* Messages Scroll Area */}
-      <div id="chat-messages" className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-950/20">
+      <div id="chat-messages" className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50/50">
         {messages.map((msg) => {
           const isBot = msg.sender === "bot";
           return (
@@ -138,17 +138,17 @@ ${
             >
               <div
                 className={`flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-lg ${
-                  isBot ? "bg-indigo-950 text-indigo-400 border border-indigo-900/40" : "bg-slate-800 text-slate-300 border border-slate-700/40"
+                  isBot ? "bg-indigo-50 text-indigo-600 border border-indigo-200" : "bg-slate-100 text-slate-600 border border-slate-200"
                 }`}
               >
                 {isBot ? <Bot className="w-3.5 h-3.5" /> : <User className="w-3.5 h-3.5" />}
               </div>
               
               <div
-                className={`max-w-[80%] rounded-xl p-3 shadow-md ${
+                className={`max-w-[80%] rounded-xl p-3 shadow-sm ${
                   isBot
-                    ? "bg-[#1f2937]/75 border border-slate-800 text-slate-200 text-xs leading-relaxed"
-                    : "bg-gradient-to-br from-indigo-600 to-indigo-700 text-slate-100 text-xs leading-relaxed"
+                    ? "bg-white border border-slate-200/80 text-slate-800 text-xs leading-relaxed"
+                    : "bg-gradient-to-br from-indigo-600 to-indigo-700 text-white text-xs leading-relaxed"
                 }`}
               >
                 {/* Simplified markdown formatter for bold lists */}
@@ -165,7 +165,7 @@ ${
                     return <p key={idx} className="font-medium">{line}</p>;
                   })}
                 </div>
-                <span className={`block text-[8px] mt-1.5 text-right font-mono ${isBot ? "text-slate-500" : "text-indigo-200"}`}>
+                <span className={`block text-[8px] mt-1.5 text-right font-mono ${isBot ? "text-slate-400" : "text-indigo-200"}`}>
                   {msg.timestamp}
                 </span>
               </div>
@@ -176,21 +176,21 @@ ${
         {/* Loading Spinner */}
         {loading && (
           <div className="flex items-start space-x-2.5">
-            <div className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-lg bg-indigo-950 text-indigo-400 border border-indigo-900/40">
+            <div className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-lg bg-indigo-50 text-indigo-600 border border-indigo-200">
               <Bot className="w-3.5 h-3.5" />
             </div>
-            <div className="bg-[#1f2937]/70 border border-slate-800 rounded-xl p-3 shadow-md flex items-center space-x-2">
-              <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce" />
-              <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce [animation-delay:0.2s]" />
-              <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce [animation-delay:0.4s]" />
+            <div className="bg-white border border-slate-200 rounded-xl p-3 shadow-sm flex items-center space-x-2">
+              <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-bounce" />
+              <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-bounce [animation-delay:0.2s]" />
+              <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-bounce [animation-delay:0.4s]" />
             </div>
           </div>
         )}
 
         {/* Error Alert */}
         {error && (
-          <div className="flex items-center space-x-2 p-3 bg-rose-950/20 border border-rose-900/40 rounded-xl text-rose-400 text-xs">
-            <AlertCircle className="w-4 h-4 flex-shrink-0 text-rose-400" />
+          <div className="flex items-center space-x-2 p-3 bg-rose-50 border border-rose-200 rounded-xl text-rose-700 text-xs">
+            <AlertCircle className="w-4 h-4 flex-shrink-0 text-rose-500" />
             <span className="font-medium">{error}</span>
           </div>
         )}
@@ -198,13 +198,13 @@ ${
       </div>
 
       {/* Suggested chips panel */}
-      <div id="chat-suggestions" className="px-4 py-2.5 border-t border-slate-800/60 bg-[#0f172a]/90 overflow-x-auto whitespace-nowrap scrollbar-none flex gap-1.5">
+      <div id="chat-suggestions" className="px-4 py-2.5 border-t border-slate-200/80 bg-slate-50/80 overflow-x-auto whitespace-nowrap scrollbar-none flex gap-1.5">
         {suggestions.map((s, idx) => (
           <button
             key={idx}
             onClick={() => handleSend(s)}
             disabled={loading}
-            className="inline-block bg-[#1f2937]/50 border border-slate-800 hover:border-indigo-500/50 hover:bg-indigo-500/10 text-slate-400 hover:text-indigo-400 text-[10px] font-semibold px-2.5 py-1 rounded-lg cursor-pointer transition-all duration-150"
+            className="inline-block bg-white border border-slate-200 hover:border-indigo-500/50 hover:bg-indigo-50 text-slate-600 hover:text-indigo-600 text-[10px] font-semibold px-2.5 py-1 rounded-lg cursor-pointer transition-all duration-150"
           >
             {s}
           </button>
@@ -217,7 +217,7 @@ ${
           e.preventDefault();
           handleSend(input);
         }}
-        className="flex items-center p-3 border-t border-slate-800/60 bg-[#0f172a]/95"
+        className="flex items-center p-3 border-t border-slate-200/80 bg-slate-50"
       >
         <input
           type="text"
@@ -225,12 +225,12 @@ ${
           onChange={(e) => setInput(e.target.value)}
           disabled={loading}
           placeholder="Type your message..."
-          className="flex-1 bg-slate-950/50 border border-slate-800/80 text-slate-200 placeholder-slate-600 focus:border-indigo-500/80 focus:bg-slate-950 text-xs px-3.5 py-2.5 rounded-xl outline-none transition-all duration-200"
+          className="flex-1 bg-white border border-slate-200 text-slate-800 placeholder-slate-400 focus:border-indigo-500/80 text-xs px-3.5 py-2.5 rounded-xl outline-none transition-all duration-200"
         />
         <button
           type="submit"
           disabled={loading || !input.trim()}
-          className="ml-2 flex items-center justify-center w-9 h-9 rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 disabled:bg-slate-800 disabled:text-slate-600 cursor-pointer shadow-md transition-colors duration-200"
+          className="ml-2 flex items-center justify-center w-9 h-9 rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 disabled:bg-slate-100 disabled:text-slate-400 cursor-pointer shadow-md transition-colors duration-200"
         >
           <Send className="w-3.5 h-3.5" />
         </button>
