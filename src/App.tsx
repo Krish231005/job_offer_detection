@@ -23,7 +23,6 @@ import {
 } from "lucide-react";
 import { ScanRecord, CompleteScanResponse } from "./types";
 import GaugeMeter from "./components/GaugeMeter";
-import EvidencePanel from "./components/EvidencePanel";
 import ChatAssistant from "./components/ChatAssistant";
 import ModelReport from "./components/ModelReport";
 import Analytics from "./components/Analytics";
@@ -596,14 +595,6 @@ Report compiled by: Fake Job Offer Verification System
               {activeScan ? (
                 <>
                   <GaugeMeter score={activeScan.riskScore} />
-                  
-                  <EvidencePanel
-                    indicators={activeScan.indicators}
-                    emailTrustScore={activeScan.emailTrustScore}
-                    websiteTrustScore={activeScan.websiteTrustScore}
-                    companyName={activeScan.company}
-                    interviewMethod={activeScan.details?.interviewMethod || "Zoom"}
-                  />
                   
                   <ChatAssistant
                     activeScanId={activeScan.id}
